@@ -1,21 +1,21 @@
 # Visualisierung einer Mandelbrot-Menge.
-# Die Grundidee basiert auf einem nichtlinearen Rückkopplungsschema für komplexe Zahlen.
+# Die Grundidee basiert auf einem nichtlinearen RÃ¼ckkopplungsschema fÃ¼r komplexe Zahlen.
 clear
 clc
 close all
-# (Willkürkliche) Festlegung der komplexen Zahl:
+# (WillkÃ¼rkliche) Festlegung der komplexen Zahl:
 imaginaerwert = -1.5;
 realwert = -2;
 c1 = realwert+imaginaerwert*j;
 # Startwert:
 z1 = 0;
 # Festlegung der Grenzen zur Feststellung Divergenz:
-grenzeA = 2; # noch keine Idee ob der Wert Sinn macht; wohl nicht so kriegsentscheidend für die Ermittlung Divergenz
-grenzeB = 2; # noch keine Idee ob der Wert Sinn macht; wohl nicht so kriegsentscheidend für die Ermittlung Divergenz
+grenzeA = 2; # noch keine Idee ob der Wert Sinn macht; wohl nicht so kriegsentscheidend fÃ¼r die Ermittlung Divergenz
+grenzeB = 2; # noch keine Idee ob der Wert Sinn macht; wohl nicht so kriegsentscheidend fÃ¼r die Ermittlung Divergenz
 # Hier kann man ein wenig "herumspielen":
 definitionsbereich = 3.0; # richtet sich nach der zuvor festgelegten komplexen Zahl
-wertebereich = 3000; # Raster der Matrix; merklicher Einfluss auf Ausführungsgeschwindigkeit
-divergenzversuche = 50; # noch keine Idee ob der Wert Sinn macht; Verringerungungen machen das Programm wahrscheinlich merklich schneller
+wertebereich = 3000; # Raster der Matrix; merklicher Einfluss auf AusfÃ¼hrungsgeschwindigkeit
+divergenzversuche = 50; # noch keine Idee ob der Wert Sinn macht; Verringerungen machen das Programm wahrscheinlich merklich schneller
 # "Durchfahren" aller Real- und Imaginaerwerte:
 tic
 for u = 1 : 1 : wertebereich # Realteil-Schleife
@@ -46,7 +46,7 @@ for u = 1 : 1 : wertebereich # Realteil-Schleife
      # Addition (schrittweise) des Imaginaerteils
      c1 = c1 + (0.0+(definitionsbereich/wertebereich)*j);
   end
-  # Generierung des "ursprünglichen" Imaginärteils, mit Addition (schrittweise) des Realteils
+  # Generierung des "ursprÃ¼nglichen" ImaginÃ¤rteils, mit Addition (schrittweise) des Realteils
   c1 = c1 + ((definitionsbereich/wertebereich)-definitionsbereich*j);   
 end
 toc;
