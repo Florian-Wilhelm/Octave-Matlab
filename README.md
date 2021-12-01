@@ -1,2 +1,2 @@
-# Octave-Matlab
-Random collection of MATLAB and OCTAVE scripts
+### About
+Random collection of MATLAB and OCTAVE scripts.
