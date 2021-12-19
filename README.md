@@ -1,2 +1,2 @@
 ### About
-Random collection of MATLAB and OCTAVE scripts.
+Various MATLAB and OCTAVE projects.
