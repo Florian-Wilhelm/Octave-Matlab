@@ -1,3 +1,3 @@
 ### About
 Various MATLAB and OCTAVE projects.
-![Eigenwert](https://user-images.githubusercontent.com/77980708/146673265-416c8917-f4aa-445c-a3df-603e5ceb1770.gif)
+![Eigenwerte-Erregerfrequenz](https://user-images.githubusercontent.com/77980708/146713583-18ed56a6-e213-4043-ac50-cb8242dfc52f.gif)
