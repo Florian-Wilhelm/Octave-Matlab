@@ -1,13 +1,14 @@
 clear
 clc
-# close all
-# Komplexe Zahl
+close all
+
+% Komplexe Zahl
 c0 = -0.1+0.60j;
-# Startwert
+% Startwert
 z0 = 0;
-# Erster Indexwert
+% Erster Indexwert
 zn(1) = z0 + c0;
-# Rückkopplungsschema
+% RÃ¼ckkopplungsschema
 for n = 1 : 1 : 100
   zn(n+1) = ((zn(n))^2)+c0;
 end
@@ -15,20 +16,20 @@ figure(1)
 plot(zn)
 title('Mandelbrot')
 xlabel('real')
-ylabel('imaginär')
+ylabel('imaginÃ¤r')
 grid on
 
-# Komplexe Zahl
+% Komplexe Zahl
 c1 = -0.1+0.0j;
-# Startwert
+% Startwert
 z1 = 0
-# Grenzen
+% Grenzen
 grenzeA = 10
 grenzeB = 10
 for u = 1 : 1 : 100
   k = 1
   for r = 1 : 1 : 100
-  #Erster Indexwert
+  % Erster Indexwert
     zm(1) = z1 + c1;
     for m = 1 : 1 : 100  
     
