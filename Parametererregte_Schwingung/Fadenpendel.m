@@ -4,34 +4,34 @@ close all
 
 global Om L0 DL0 g delta
 
-# Parameter
+% Parameter
 
-m = 0.5; # Masse am Fadenpendel
-g = 9.81; # Erdbeschleunigung
-L0 = 0.3; # Pendellänge
-om = sqrt(g/L0); # Eigenfrequenz
+m = 0.5; % Masse am Fadenpendel
+g = 9.81; % Erdbeschleunigung
+L0 = 0.3; % Pendellänge
+om = sqrt(g/L0); % Eigenfrequenz des Systems
 
-# Reibung
+% Reibung bzw. Dämpfung
 
-abn1 = 0.92; # Abnahme der naechsten Amplitude auf abn1 * 100 Prozent
+abn1 = 0.92; % Abnahme der naechsten Amplitude auf abn1 * 100 Prozent
 abn2 = 1/abn1;
-LD = log(abn2); # log. Dekrement
+LD = log(abn2); % log. Dekrement
 theta_sd = LD/(2*pi());
-theta = sqrt(1/(((2*pi())^2)/(LD^2)+1)); # Dämpfungsgrad
+theta = sqrt(1/(((2*pi())^2)/(LD^2)+1)); % Dämpfungsgrad
 delta = theta * om;
 d = delta*2*m;
 
-# Hilfsvariablen
+% Hilfsvariablen
 
 n1 = 1;
-n4 = floor(om); # Abrunden der Eigenkreisfrequenz für die for-Schleife
-n5 = 0.001; # diskreter Schritt für Delta L0
-n6 = 0.05; # Größtwert Delta L0
-n7 = 3; # n-fache Eigenfrequenz, die maximal für die Parameterfrequenz gefahren wird
+n4 = floor(om); % Abrunden der Eigenkreisfrequenz für die for-Schleife
+n5 = 0.001; % diskreter Schritt für Delta L0
+n6 = 0.05; % Größtwert Delta L0
+n7 = 3; % n-fache Eigenfrequenz, die maximal für die Parameterfrequenz gefahren wird
 
 anzahl = n6/n5;
 
-# Startwert
+% Startwert
 
 anfangsbedingung = 0.05;
 
@@ -42,42 +42,42 @@ for DL0 = 0:n5:n6
   
   for Om = 1:0.1:n7*n4
     
-    # Integrationsintervall
+    % Integrationsintervall
     
-    T = (2*pi())/Om; # Periodendauer
+    T = (2*pi())/Om; % Parameterperiode
     tint = [0 T];
     
-    # Anfangswerte
+    % Anfangswerte
     
-    y0_1 = [anfangsbedingung;0]; # 1. reelle Anfangsbedingung [s, v], kleiner Winkel!
-    y0_2 = [0;anfangsbedingung]; # 2. reelle Anfangsbedingung [s, v], kleiner Winkel!
+    y0_1 = [anfangsbedingung;0]; % 1. reelle Anfangsbedingung [s, v], kleiner Winkel!
+    y0_2 = [0;anfangsbedingung]; % 2. reelle Anfangsbedingung [s, v], kleiner Winkel!
     
-    # Integration (Hinweis: Funktionen dgl_1 und dgl_2 sind identisch)
+    % Integration
     
     options = odeset ('RelTol', 1e-04);
-    [t,y1] = ode45(@dgl_1, tint, y0_1, options); # Hinweis: @ ist ein function handle
+    [t,y1] = ode45(@dgl_1, tint, y0_1, options); % Hinweis: @ ist ein function handle
     
     options = odeset ('RelTol', 1e-04);
     [t,y2] = ode45(@dgl_2, tint, y0_2, options); 
     
-    # Eigenwerte
+    % Lösung des Floquet-Eigenwertproblems
     
-    Phi = [y1(end, 1) y2(end, 1); y1(end, 2) y2(end, 2)]; # s erste Zeile, v zweite Zeile
+    Phi = [y1(end, 1) y2(end, 1); y1(end, 2) y2(end, 2)]; % s erste Zeile, v zweite Zeile
     
     mue = eig(Phi);
     mue_betr1(n1,n2) = abs(mue(1,1));
     mue_betr2(n1,n2) = abs(mue(2,1));
     
-    # Generierung der Stabilitätskarte, Ausgabe in Matrixform
+    % Generierung der Stabilitätskarte, Ausgabe in Matrixform
     
     if abs(mue(1,1)) <= anfangsbedingung 
-      stab1(n1,n2) = 1; # n1 für h0, n2 für Omega
+      stab1(n1,n2) = 1; % n1 für h0, n2 für Omega
     else
       stab1(n1,n2) = 0;
     endif
     
     if abs(mue(2,1)) <= anfangsbedingung 
-      stab2(n1,n2) = 1; # n1 für h0, n2 für Omega
+      stab2(n1,n2) = 1; % n1 für h0, n2 für Omega
     else
       stab2(n1,n2) = 0;
     endif
@@ -93,9 +93,9 @@ for DL0 = 0:n5:n6
 end 
 
 
-# Grafische Aufbereitung
+% Grafische Aufbereitung
 
-# Eigenwerte
+% Eigenwerte
 
 for DL0 = 1:1:anzahl
   
@@ -114,7 +114,7 @@ end
 
 hold off
 
-# Stabilitätsmatrix
+% Stabilitätsmatrix
 
 figure(2)
 
