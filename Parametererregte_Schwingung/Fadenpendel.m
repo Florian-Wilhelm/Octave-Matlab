@@ -4,7 +4,7 @@ close all
 
 global Om L0 DL0 g delta
 
-% Parameter
+% System-Parameter
 
 m = 0.5; % Masse am Fadenpendel
 g = 9.81; % Erdbeschleunigung
