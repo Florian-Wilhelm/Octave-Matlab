@@ -121,6 +121,7 @@ figure(2)
 x = 1:0.1:n7*n4;
 y = 0:n5:n6;
 pcolor(x,y,stab);
+colormap(winter)
 
 title(['Stabilitätsmatrix, dunkel: instabil, Eigenfrequenz = ', num2str(om), ' Hz; ', ' Dämpfung = ', num2str(100 - abn1*100), ' %'])
 xlabel('\Omega')
