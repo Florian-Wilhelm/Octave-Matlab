@@ -2,30 +2,30 @@ clear
 clc
 close all
 
-global D beta gamma Om
+global D beta gamma Om % dient nur der Lesbarkeit; diese Parameter kÃ¶nnen auch bei Solver-Aufruf an die Unterfunktion Ã¼bergeben werden
 
 % System-Parameter
 
 m = 0.25; % Punktmasse
 g = 9.81; % Erdbeschleunigung
-L = 0.2; % Pendellänge
+L = 0.2; % PendellÃ¤nge
 om = sqrt(g/L); % Eigenfrequenz des Systems
 
-% Reibung bzw. Dämpfung
+% Reibung bzw. DÃ¤mpfung
 
 abn1 = 0.92; % Abnahme der naechsten Amplitude auf abn1 * 100 Prozent
 abn2 = 1/abn1;
 LD = log(abn2); % log. Dekrement
-theta_sd = LD/(2*pi()); % Dämpfungsgrad für schwach gedämpfte Systeme
-theta = sqrt(1/(((2*pi())^2)/(LD^2)+1)); % Dämpfungsgrad
+theta_sd = LD/(2*pi()); % DÃ¤mpfungsgrad fÃ¼r schwach gedÃ¤mpfte Systeme
+theta = sqrt(1/(((2*pi())^2)/(LD^2)+1)); % DÃ¤mpfungsgrad
 delta = theta * om; % Abklinkkonstante
-d = delta*2*m; % Dämpfungskonstante
+d = delta*2*m; % DÃ¤mpfungskonstante
 
 % Hilfsvariablen
 
 n1 = 1;
-n4 = floor(om); % Abrunden der Eigenkreisfrequenz für die for-Schleife
-n5 = 0.01; % diskreter Schritt für h0
+n4 = floor(om); % Abrunden der Eigenkreisfrequenz fÃ¼r die for-Schleife
+n5 = 0.01; % diskreter Schritt fÃ¼r h0
 
 anzahl = L/n5;
 
@@ -40,7 +40,7 @@ for h0 = 0:n5:L % Durchfahren der Parameteramplitude
   
   for Om = 1:0.1:3*n4 % Durchfahren der Erregerfrequenz, 3*floor(om) = Om max
   
-    % Abkürzungen für Mathieu-DGL
+    % AbkÃ¼rzungen fÃ¼r Mathieu-DGL
 	
 	beta = (om^2);
 	gamma = h0/L;
@@ -64,7 +64,7 @@ for h0 = 0:n5:L % Durchfahren der Parameteramplitude
     options = odeset ('RelTol', 1e-04);
     [t,y2] = ode45(@mathieu_dgl_2, tint, y0_2, options); 
     
-    % Lösung des Floquet-Eigenwertproblems
+    % LÃ¶sung des Floquet-Eigenwertproblems
     
     Phi = [y1(end, 1) y2(end, 1); y1(end, 2) y2(end, 2)]; % s erste Zeile, v zweite Zeile
     
@@ -72,7 +72,7 @@ for h0 = 0:n5:L % Durchfahren der Parameteramplitude
     mue_betr1(n1,n2) = abs(mue(1,1));
     mue_betr2(n1,n2) = abs(mue(2,1));
     
-    % Generierung der Stabilitätskarte, Ausgabe in Matrixform
+    % Generierung der StabilitÃ¤tskarte, Ausgabe in Matrixform
     
     if abs(mue(1,1)) <= anfangsbedingung 
       stab1(n1,n2) = 1; 
@@ -105,9 +105,9 @@ for h0 = 1:1:anzahl
   
   figure(1)
   plot(1 : 0.1 : 3*n4, mue_betr1(h0,:), 'b-')
-  title(['Eigenwerte (mit Parameter Delta h0), Anfangsbedingung = ', num2str(anfangsbedingung),'; Eigenfrequenz = ', num2str(om), ' Hz; ', 'Dämpfung = ', num2str(100 - abn1*100), '%'])
+  title(['Eigenwerte (mit Parameter Delta h0), Anfangsbedingung = ', num2str(anfangsbedingung),'; Eigenfrequenz = ', num2str(om), ' Hz; ', 'DÃ¤mpfung = ', num2str(100 - abn1*100), '%'])
   xlabel('\Omega')
-  ylabel('|µ|')
+  ylabel('|Âµ|')
   grid on
   
   hold on
@@ -118,7 +118,7 @@ end
 
 hold off
 
-% Stabilitätsmatrix
+% StabilitÃ¤tsmatrix
 
 figure(2)
 
@@ -127,6 +127,6 @@ y = 0:n5:L;
 pcolor(x,y,stab);
 colormap(winter)
 
-title(['Stabilitätsmatrix, dunkel: instabil, Eigenfrequenz = ', num2str(om), ' Hz; ', ' Dämpfung = ', num2str(100 - abn1*100), ' %'])
+title(['StabilitÃ¤tsmatrix, dunkel: instabil, Eigenfrequenz = ', num2str(om), ' Hz; ', ' DÃ¤mpfung = ', num2str(100 - abn1*100), ' %'])
 xlabel('\Omega')
-ylabel('Variiertes h0, Größtwert L')
+ylabel('Variiertes h0, GrÃ¶ÃŸtwert L')
