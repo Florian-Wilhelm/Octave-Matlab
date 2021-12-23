@@ -101,7 +101,7 @@ for DL0 = 1:1:anzahl
   
   figure(1)
   plot(1 : 0.1 : n7*n4, mue_betr1(DL0,:), 'b-')
-  title(['Eigenwerte (mit Parameter Hub), Anfangsbedingung = ', num2str(anfangsbedingung),'; Eigenfrequenz = ', num2str(om), ' Hz; ', 'Dämpfung = ', num2str(100 - abn1*100), '%'])
+  title(['Eigenwerte (mit Parameter Delta L0), Anfangsbedingung = ', num2str(anfangsbedingung),'; Eigenfrequenz = ', num2str(om), ' Hz; ', 'Dämpfung = ', num2str(100 - abn1*100), '%'])
   xlabel('\Omega')
   ylabel('|µ|')
   grid on
