@@ -2,7 +2,7 @@ clear
 clc
 close all
 
-global Om L0 DL0 g delta
+global Om L0 DL0 g delta % dient nur der Lesbarkeit; diese Parameter können auch bei Solver-Aufruf an die Unterfunktion übergeben werden
 
 % System-Parameter
 
