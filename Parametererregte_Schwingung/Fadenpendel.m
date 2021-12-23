@@ -16,10 +16,10 @@ om = sqrt(g/L0); % Eigenfrequenz des Systems
 abn1 = 0.92; % Abnahme der naechsten Amplitude auf abn1 * 100 Prozent
 abn2 = 1/abn1;
 LD = log(abn2); % log. Dekrement
-theta_sd = LD/(2*pi());
+theta_sd = LD/(2*pi()); % Dämpfungsgrad für schwach gedämpfte Systeme
 theta = sqrt(1/(((2*pi())^2)/(LD^2)+1)); % Dämpfungsgrad
-delta = theta * om;
-d = delta*2*m;
+delta = theta * om; % Abklinkkonstante
+d = delta*2*m; % Dämpfungskonstante
 
 % Hilfsvariablen
 
