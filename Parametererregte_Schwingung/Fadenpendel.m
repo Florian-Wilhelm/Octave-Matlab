@@ -71,13 +71,13 @@ for DL0 = 0:n5:n6
     % Generierung der Stabilitätskarte, Ausgabe in Matrixform
     
     if abs(mue(1,1)) <= anfangsbedingung 
-      stab1(n1,n2) = 1; % n1 für h0, n2 für Omega
+      stab1(n1,n2) = 1; 
     else
       stab1(n1,n2) = 0;
     endif
     
     if abs(mue(2,1)) <= anfangsbedingung 
-      stab2(n1,n2) = 1; % n1 für h0, n2 für Omega
+      stab2(n1,n2) = 1; 
     else
       stab2(n1,n2) = 0;
     endif
