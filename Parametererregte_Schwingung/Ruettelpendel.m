@@ -2,7 +2,7 @@ clear
 clc
 close all
 
-global D beta gamma Om % dient nur der Lesbarkeit; diese Parameter können auch bei Solver-Aufruf an die Unterfunktion übergeben werden
+global D beta gamma Om % dient nur der "Lesbarkeit"; diese Parameter können auch bei Solver-Aufruf an die Unterfunktion (DGL) übergeben werden
 
 % System-Parameter
 
