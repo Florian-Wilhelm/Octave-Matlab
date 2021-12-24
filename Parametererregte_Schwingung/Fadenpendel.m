@@ -2,11 +2,11 @@ clear
 clc
 close all
 
-global Om L0 DL0 g delta % dient nur der Lesbarkeit; diese Parameter können auch bei Solver-Aufruf an die Unterfunktion übergeben werden
+global Om L0 DL0 g delta % dient nur der "Lesbarkeit"; diese Parameter können auch bei Solver-Aufruf an die Unterfunktion (DGL) übergeben werden
 
 % System-Parameter
 
-m = 0.5; % Masse am Fadenpendel
+m = 0.5; % Masse am Faden
 g = 9.81; % Erdbeschleunigung
 L0 = 0.3; % Pendellänge
 om = sqrt(g/L0); % Eigenfrequenz des Systems
