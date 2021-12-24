@@ -104,14 +104,14 @@ end
 for h0 = 1:1:anzahl
   
   figure(1)
+  
   plot(1 : 0.1 : 3*n4, mue_betr1(h0,:), 'b-')
   title(['Eigenwerte (mit Parameter Delta h0), Anfangsbedingung = ', num2str(anfangsbedingung),'; Eigenfrequenz = ', num2str(om), ' Hz; ', 'Dämpfung = ', num2str(100 - abn1*100), '%'])
   xlabel('\Omega')
   ylabel('|µ|')
   grid on
   
-  hold on
-  
+  hold on  
   plot(1:0.1:3*n4,mue_betr2(h0,:), '-g')
   
 end
