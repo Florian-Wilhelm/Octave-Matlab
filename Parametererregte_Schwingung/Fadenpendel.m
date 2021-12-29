@@ -40,7 +40,7 @@ for DL0 = 0:n5:n6
   n2 = 1;
   disp(DL0);
   
-  for Om = 1:0.1:n7*n4
+  for Om = 1:0.1:n7*n4 % Durchfahren der Erregerfrequenz; Start bei 0 würde Probleme bei der num. Integration bereiten
     
     % Integrationsintervall
     
