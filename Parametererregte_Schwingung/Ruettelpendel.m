@@ -26,6 +26,7 @@ d = delta*2*m; % Dämpfungskonstante
 n1 = 1;
 n4 = floor(om); % Abrunden der Eigenkreisfrequenz für die for-Schleife
 n5 = 0.01; % diskreter Schritt für h0
+n7 = 3; % n-fache Eigenfrequenz, die maximal für die Parameterfrequenz gefahren wird
 
 anzahl = L/n5;
 
@@ -38,7 +39,7 @@ for h0 = 0:n5:L % Durchfahren der Parameteramplitude
   n2 = 1;
   disp(h0);
   
-  for Om = 1:0.1:3*n4 % Durchfahren der Erregerfrequenz, 3*floor(om) = Om max
+  for Om = 1:0.1:n7*n4 % Durchfahren der Erregerfrequenz; Start bei 0 würde Probleme bei der num. Integration bereiten
   
     % Abkürzungen für Mathieu-DGL
 	
@@ -105,14 +106,14 @@ for h0 = 1:1:anzahl
   
   figure(1)
   
-  plot(1 : 0.1 : 3*n4, mue_betr1(h0,:), 'b-')
+  plot(1 : 0.1 : n7*n4, mue_betr1(h0,:), 'b-')
   title(['Eigenwerte (mit Parameter Delta h0), Anfangsbedingung = ', num2str(anfangsbedingung),'; Eigenfrequenz = ', num2str(om), ' Hz; ', 'Dämpfung = ', num2str(100 - abn1*100), '%'])
   xlabel('\Omega')
   ylabel('|µ|')
   grid on
   
   hold on  
-  plot(1:0.1:3*n4,mue_betr2(h0,:), '-g')
+  plot(1:0.1:n7*n4,mue_betr2(h0,:), '-g')
   
 end
 
@@ -122,7 +123,7 @@ hold off
 
 figure(2)
 
-x = 1:0.1:3*n4;
+x = 1:0.1:n7*n4;
 y = 0:n5:L;
 pcolor(x,y,stab);
 colormap(winter)
