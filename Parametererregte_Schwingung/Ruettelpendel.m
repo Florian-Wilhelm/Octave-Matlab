@@ -44,7 +44,7 @@ for h0 = 0:n5:L % Durchfahren der Parameteramplitude
     % Abkürzungen für Mathieu-DGL
 	
 	beta = (om^2);
-	gamma = h0/L;
+	gamma = h0/L; % Funktion die den Fußpunkt bewegt: h(t)= h0*cos(Om*t); h0 ist also einfacher Spitzenwert
 	D = d/m;
     
     % Integrationsintervall
