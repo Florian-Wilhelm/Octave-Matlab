@@ -26,7 +26,7 @@ d = delta*2*m; % Dämpfungskonstante
 n1 = 1;
 n4 = floor(om); % Abrunden der Eigenkreisfrequenz für die for-Schleife
 n5 = 0.001; % diskreter Schritt für Delta L0
-n6 = 0.05; % Größtwert Delta L0
+n6 = 0.05; % Größtwert Delta L0 (DL0): DL0(t)= DL0*cos(Om*t); DL0 ist also einfacher Spitzenwert
 n7 = 3; % n-fache Eigenfrequenz, die maximal für die Parameterfrequenz gefahren wird
 
 anzahl = n6/n5;
