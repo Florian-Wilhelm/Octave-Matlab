@@ -13,7 +13,7 @@ om = sqrt(g/L0); % Eigenfrequenz des Systems
 
 % Reibung bzw. Dämpfung
 
-abn1 = 0.92; % Abnahme der naechsten Amplitude auf abn1 * 100 Prozent
+abn1 = 0.92; % Abnahme der nächsten Amplitude auf abn1 * 100 Prozent
 abn2 = 1/abn1;
 LD = log(abn2); % log. Dekrement
 theta_sd = LD/(2*pi()); % Dämpfungsgrad für schwach gedämpfte Systeme
@@ -31,7 +31,7 @@ n7 = 3; % n-fache Eigenfrequenz, die maximal für die Parameterfrequenz gefahren
 
 anzahl = n6/n5;
 
-% Startwert
+% Startwert für die Stabilitätsuntersuchung nach Floquet (kann in gewissen Bereichen willkürlich gewählt werden)
 
 anfangsbedingung = 0.05;
 
