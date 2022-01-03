@@ -1,8 +1,8 @@
 function yp = mathieu_dgl_2(t,y)
 
-  % DGL siehe Formel 19.3 aus "Strukturdynamik" - Robert Gasch, Springer-Lehrbuch
-  % Diese DGL stellt die sog. "Mathieu’sche Differentialgleichung" dar (hier in der Zustandsdarstellung)
-  % gilt nur für kleine Schwingungen, d. h. solange sin(Winkel) ist näherungsweise Winkel erfüllt
+  % DGL siehe Formel 19.3 aus "Strukturdynamik" - Robert Gasch, Springer-Lehrbuch.
+  % Diese DGL stellt die sog. "Mathieu’sche Differentialgleichung" dar (hier in der Zustandsdarstellung);
+  % physikalisch gilt sie nur für kleine Schwingungen, d. h. solange sin(Winkel) ist näherungsweise Winkel erfüllt.
   
   global D beta gamma Om
   
