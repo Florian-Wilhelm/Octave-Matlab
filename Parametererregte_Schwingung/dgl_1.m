@@ -1,7 +1,8 @@
 function yp = dgl_1(t,y)
 
-  % DGL siehe Formel 12.1 aus "Experimentalphysik 1" - Wolfgang Demtröder, Springer-Lehrbuch
-  % beachten: diese DGL ist nichtlinear aufgrund des Ausdrucks sin(y(1)
+  % DGL siehe Formel 12.1 aus "Experimentalphysik 1" - Wolfgang Demtröder, Springer-Lehrbuch.
+  % Beachten: diese DGL ist nichtlinear aufgrund des Ausdrucks sin(y(1));
+  % Jene Nichtlinearität führt bei realen Systemen bei wachsender Amplitude zu einer Verschiebung der Grenzlinien im Stabilitätsdiagramm ("Verstimmung").
   
   global Om L0 DL0 g delta
   
