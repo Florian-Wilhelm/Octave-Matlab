@@ -124,5 +124,5 @@ pcolor(x,y,stab);
 colormap(winter)
 
 title(['Stabilitätsmatrix, dunkel: instabil, Eigenfrequenz = ', num2str(om), ' 1/s; ', ' Dämpfung = ', num2str(100 - abn1*100), ' %'])
-xlabel('\Omega')
+xlabel('Parameterfrequenz \Omega')
 ylabel('Hub \Delta L0')
