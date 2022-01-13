@@ -1,3 +1,3 @@
 function y = computeSquare(x)
-  y = x.^2; # elemtweises Potenzieren
+  y = x.^2; # elementweises Potenzieren
 end
