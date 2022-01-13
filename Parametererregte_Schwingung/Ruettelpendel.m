@@ -57,7 +57,7 @@ for h0 = 0:n5:L % Durchfahren der Parameteramplitude
     y0_1 = [anfangsbedingung;0]; % 1. reelle Anfangsbedingung [s, v], kleiner Winkel!
     y0_2 = [0;anfangsbedingung]; % 2. reelle Anfangsbedingung [s, v], kleiner Winkel!
     
-    % Integration
+    % Integration; keine Besonderheiten in den DGL erkennbar (z. B. Steifheit), daher Verwendung von ode45
     
     options = odeset ('RelTol', 1e-04);
     [t,y1] = ode45(@mathieu_dgl_1, tint, y0_1, options); % Hinweis: @ ist ein function handle
