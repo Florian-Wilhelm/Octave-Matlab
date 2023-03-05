@@ -1,5 +1,5 @@
 Dieses Projekt entstand im Rahmen einer Studienarbeit (Studiengang Maschinenbau) an der TH Nürnberg. 
 
-![Eigenwerte-Ruettelpendel](https://user-images.githubusercontent.com/77980708/147196590-94e5110d-b041-4072-a910-3adb8ceb9ce2.gif)
+![Eigenwerte-Ruettelpendel-1](https://user-images.githubusercontent.com/77980708/222967860-10d5e5ac-8f97-434a-8b58-af951399d4b4.png)
 
-![Stabilitaetsmatrix](https://user-images.githubusercontent.com/77980708/207241488-86a2647e-bbcc-412d-abba-dc514adfd8b4.png)
+![Stabilitaetsmatrix](https://user-images.githubusercontent.com/77980708/222967868-567b3d5b-5030-4810-a29b-a36fc994ac07.png)
