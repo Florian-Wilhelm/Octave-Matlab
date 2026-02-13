@@ -1,4 +1,3 @@
-### About
+### Über dieses Repository
 
-Verschiedene MATLAB und OCTAVE Projekte, mit Fragestellungen aus dem akademischen Bereich. 
-Der Schwerpunkt liegt auf der numerischen Analyse.
+Verschiedene MATLAB und OCTAVE Projekte, entstanden zu meiner Zeit als Student (Maschinenbau an der TH Nürnberg). 
